@@ -852,16 +852,29 @@ a {
    ========================================= */
 @media (max-width: 767px) {
     .hero {
-        background-position: bottom right;
-        background-size: 100%;
+        background-position: center bottom;
+        background-size: 100% auto;
+        background-color: var(--clr-bg-premium); /* Fundo escuro para remover o buraco branco */
         align-items: flex-start;
-        padding-top: 80px;
+        padding-top: 120px; /* Mais espaço para o logotipo fixo não sobrepor */
+    }
+    .hero::before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to bottom, rgba(7, 11, 18, 1) 0%, rgba(7, 11, 18, 0.8) 55%, rgba(7, 11, 18, 0) 100%);
+        z-index: 1;
     }
     .hero-content {
-        background: linear-gradient(to bottom, rgba(7, 11, 18, 0.95) 30%, rgba(7, 11, 18, 0.7) 70%, rgba(7, 11, 18, 0) 100%);
-        padding: 20px;
-        padding-bottom: 350px; /* Espaço para a foto aparecer embaixo */
-        border-radius: 0 0 20px 20px;
+        background: transparent;
+        padding: 0 5px;
+        padding-bottom: 350px; /* Espaço para a foto aparecer limpa embaixo */
+    }
+    .badge {
+        font-size: 0.75rem;
+        white-space: normal;
+        line-height: 1.4;
     }
     .headline {
         font-size: 2.2rem;
