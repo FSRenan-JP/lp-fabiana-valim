@@ -1,0 +1,942 @@
+/* =========================================
+   DESIGN TOKENS & VARIABLES
+   ========================================= */
+   :root {
+    /* Colors */
+    --clr-bg-premium: #070B12;      /* Preto Premium */
+    --clr-gold-dark: #D8781E;       /* Cobre/Dourado Escuro */
+    --clr-gold-light: #F0A13A;      /* Cobre/Dourado Claro */
+    --clr-bg-light: #F8F1E8;        /* Branco Quente */
+    --clr-bg-cards: #FFFFFF;
+    
+    --clr-wpp-light: #25D366;       /* Verde WhatsApp */
+    --clr-wpp-dark: #0F6B32;        /* Verde Escuro */
+    
+    --clr-accent-wine: #4A061B;     /* Vinho/Roxo */
+    --clr-accent-purple: #4B2458;
+    
+    --clr-text-main: #333333;
+    --clr-text-light: #666666;
+    --clr-text-white: #FFFFFF;
+    
+    /* Typography */
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-script: 'Dancing Script', cursive;
+    
+    /* Spacing & Utilities */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+    --shadow-premium: 0 20px 40px rgba(7, 11, 18, 0.15);
+    
+    --transition: all 0.3s ease;
+}
+
+/* =========================================
+   RESET & GLOBAL
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--clr-bg-light);
+    color: var(--clr-text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Typography Classes */
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--clr-accent-wine);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.section-desc {
+    font-size: 1.1rem;
+    color: var(--clr-text-light);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+    cursor: pointer;
+    text-align: center;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--clr-wpp-light);
+    color: var(--clr-bg-premium);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--clr-wpp-dark);
+    color: var(--clr-text-white);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(15, 107, 50, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--clr-gold-light);
+    color: var(--clr-gold-light);
+}
+
+.btn-large {
+    padding: 18px 40px;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   1. HERO PREMIUM
+   ========================================= */
+.hero {
+    background-color: #FFFFFF;
+    background-image: url('fundo2.jpg');
+    background-size: cover;
+    background-position: right top; /* Alinha pelo topo para descer a imagem e não cortar a cabeça */
+    background-repeat: no-repeat;
+    color: var(--clr-bg-premium);
+    padding: var(--spacing-xl) 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Removendo o gradiente a pedido */
+.hero::before {
+    display: none;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(216, 120, 30, 0.15);
+    color: var(--clr-gold-light);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(216, 120, 30, 0.3);
+}
+
+.sub-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--clr-gold-light);
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.headline {
+    font-family: var(--font-serif);
+    font-size: 3.2rem;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.8);
+}
+
+.btn-hero {
+    padding: 22px 48px;
+    font-size: 1.25rem;
+    border-radius: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: fit-content;
+}
+
+.emotional-phrase {
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    color: var(--clr-gold-light);
+    margin-bottom: var(--spacing-md);
+    transform: rotate(-2deg);
+    display: inline-block;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #FFFFFF;
+    margin-bottom: var(--spacing-lg);
+    max-width: 90%;
+    font-weight: 500;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
+
+.cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.trust-badge {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-weight: 500;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Não precisamos mais dos frames de imagem */
+
+
+/* =========================================
+   2. SEÇÃO DE CONFIANÇA / DIFERENCIAIS
+   ========================================= */
+.trust-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--clr-bg-light);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+.card {
+    background: var(--clr-bg-cards);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    border: 1.5px solid var(--clr-gold-light);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-premium);
+}
+
+.card p {
+    font-weight: 500;
+    color: var(--clr-accent-wine);
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   3. SEÇÃO DE VALORES
+   ========================================= */
+.pricing-section {
+    padding: var(--spacing-xl) 0;
+    background-color: #FFFFFF;
+}
+
+.pricing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.price-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--clr-bg-light);
+    padding: 20px 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(216, 120, 30, 0.1);
+    transition: var(--transition);
+}
+
+.price-card:hover {
+    border-color: var(--clr-gold-light);
+    box-shadow: var(--shadow-soft);
+}
+
+.hours {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--clr-accent-wine);
+}
+
+.separator {
+    flex-grow: 1;
+    border-bottom: 1px dashed rgba(216, 120, 30, 0.3);
+    margin: 0 16px;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--clr-bg-premium);
+}
+
+.price small {
+    font-size: 0.8rem;
+    color: var(--clr-text-light);
+    font-weight: 400;
+}
+
+.pricing-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--clr-text-light);
+    font-style: italic;
+}
+
+/* =========================================
+   4. SEÇÃO O QUE NÃO ESTÁ INCLUSO
+   ========================================= */
+.not-included-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--clr-bg-light);
+}
+
+.not-included-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.not-included-card {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(74, 6, 27, 0.05);
+    font-size: 0.95rem;
+    color: var(--clr-text-main);
+    display: flex;
+    align-items: center;
+}
+
+.not-included-card::before {
+    content: '×';
+    color: var(--clr-gold-dark);
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   5. CTA FINAL & FOOTER
+   ========================================= */
+.final-cta {
+    background-color: var(--clr-bg-premium);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.final-cta::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 120, 30, 0.15) 0%, rgba(7, 11, 18, 0) 70%);
+}
+
+.text-center {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    color: var(--clr-gold-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cta-desc {
+    color: rgba(248, 241, 232, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.site-footer {
+    background-color: #04070a;
+    color: rgba(248, 241, 232, 0.5);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.site-footer p {
+    margin-bottom: 4px;
+}
+
+/* =========================================
+   3. NOVO: NAVEGAÇÃO E HEADER
+   ========================================= */
+.top-nav {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo-link {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    
+    /* Novo estilo de Card Flutuante */
+    background: rgba(7, 11, 18, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(216, 120, 30, 0.3);
+    padding: 10px 24px;
+    border-radius: 30px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.logo-link:hover {
+    color: var(--clr-gold-light);
+    border-color: var(--clr-gold-light);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   4. NOVO: ESCOPO PREMIUM
+   ========================================= */
+.premium-scope {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--clr-bg-premium);
+    color: var(--clr-bg-light);
+}
+
+.premium-scope .section-title {
+    color: var(--clr-gold-light);
+}
+
+.premium-scope .section-desc {
+    color: rgba(248, 241, 232, 0.8);
+}
+
+.scope-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.scope-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scope-item .check-icon {
+    background: var(--clr-gold-light);
+    color: var(--clr-bg-premium);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   5. NOVO: DEPOIMENTOS
+   ========================================= */
+.testimonials {
+    padding: var(--spacing-xl) 0;
+    background-color: #fff;
+}
+
+.testim-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.testim-card {
+    background: var(--clr-bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    border: 1px solid rgba(74, 6, 27, 0.05);
+}
+
+.testim-card .stars {
+    color: var(--clr-gold-dark);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.testim-card .quote {
+    font-style: italic;
+    color: var(--clr-text-main);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.testim-card .author {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--clr-accent-wine);
+}
+
+/* =========================================
+   6. ATUALIZAÇÃO: CARD MAIS PEDIDO
+   ========================================= */
+.price-card.popular {
+    background: var(--clr-bg-premium);
+    color: var(--clr-bg-light);
+    border: 2px solid var(--clr-gold-light);
+    transform: scale(1.05);
+    position: relative;
+}
+
+.price-card.popular .hours {
+    color: var(--clr-gold-light);
+}
+
+.price-card.popular .price {
+    color: var(--clr-bg-light);
+}
+
+.price-card.popular .price small {
+    color: rgba(248, 241, 232, 0.6);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--clr-gold-light);
+    color: var(--clr-bg-premium);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+/* =========================================
+   NEW: COMO FUNCIONA
+   ========================================= */
+.how-it-works {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--clr-bg-premium);
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.how-it-works .section-title {
+    color: var(--clr-gold-light);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.step-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(216, 120, 30, 0.2);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--clr-gold-light);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--clr-gold-light);
+    color: var(--clr-bg-premium);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto var(--spacing-md);
+    font-family: var(--font-serif);
+}
+
+.step-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+.step-card p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+}
+
+/* =========================================
+   NEW: O QUE NÃO ESTÁ INCLUSO
+   ========================================= */
+.not-included {
+    padding: var(--spacing-xl) 0;
+    background-color: #FDFDFD;
+    text-align: center;
+}
+
+.not-included .section-title {
+    color: var(--clr-accent-wine);
+}
+
+.not-included .section-desc {
+    color: var(--clr-text-main);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.excluded-list {
+    list-style: none;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(74, 6, 27, 0.1);
+    text-align: left;
+}
+
+.excluded-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: var(--clr-text-main);
+    font-size: 1.05rem;
+}
+
+.excluded-list li:last-child {
+    margin-bottom: 0;
+}
+
+.x-icon {
+    color: var(--clr-accent-wine);
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+/* =========================================
+   7. NOVO: FORMULÁRIO DE AGENDAMENTO
+   ========================================= */
+.schedule-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--clr-bg-light);
+}
+
+.schedule-card {
+    background: #fff;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-strong);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid var(--clr-accent-wine);
+}
+
+.schedule-card .cta-title {
+    color: var(--clr-accent-wine);
+}
+
+.schedule-card .cta-desc {
+    color: var(--clr-text-main);
+}
+
+.schedule-form {
+    margin-top: var(--spacing-lg);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.schedule-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--clr-text-main);
+    font-size: 0.95rem;
+}
+
+.schedule-form select,
+.schedule-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--clr-text-main);
+    transition: var(--transition);
+}
+
+.schedule-form select:focus,
+.schedule-form input:focus {
+    outline: none;
+    border-color: var(--clr-gold-dark);
+    box-shadow: 0 0 0 3px rgba(216, 120, 30, 0.1);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form-microcopy {
+    font-size: 0.85rem;
+    color: var(--clr-text-light);
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* =========================================
+   8. NOVO: BOTÃO FLUTUANTE WHATSAPP
+   ========================================= */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: var(--transition);
+    animation: pulse-soft 2s infinite;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* =========================================
+   MEDIA QUERIES (DESKTOP UP E MOBILE)
+   ========================================= */
+@media (max-width: 767px) {
+    .hero {
+        background-position: bottom right;
+        background-size: 90%;
+        align-items: flex-start;
+        padding-top: 40px;
+    }
+    .hero-content {
+        background: linear-gradient(to bottom, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0) 100%);
+        padding-bottom: 300px; /* Espaço para a foto aparecer embaixo */
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-content {
+        max-width: 55%;
+    }
+    
+    .headline {
+        font-size: 4rem;
+    }
+
+    .emotional-phrase {
+        font-size: 2.8rem;
+    }
+    
+    .cta-group {
+        flex-direction: row;
+    }
+    
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .scope-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testim-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* =========================================
+   ANIMATIONS & EFFECTS
+   ========================================= */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay staggered cards */
+.cards-grid .card:nth-child(1) { transition-delay: 0.1s; }
+.cards-grid .card:nth-child(2) { transition-delay: 0.2s; }
+.cards-grid .card:nth-child(3) { transition-delay: 0.3s; }
+.cards-grid .card:nth-child(4) { transition-delay: 0.4s; }
+
+/* Pulse animation on CTA button */
+@keyframes pulse-soft {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.btn-primary {
+    animation: pulse-soft 2s infinite;
+}
