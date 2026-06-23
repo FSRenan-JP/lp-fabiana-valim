@@ -869,7 +869,7 @@ a {
     .hero-content {
         background: transparent;
         padding: 0 5px;
-        padding-bottom: 350px; /* Espaço para a foto aparecer limpa embaixo */
+        padding-bottom: 120px; /* Reduzido para tirar o espaço preto excessivo */
     }
     .badge {
         font-size: 0.75rem;
