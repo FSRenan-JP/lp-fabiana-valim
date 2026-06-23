@@ -853,13 +853,47 @@ a {
 @media (max-width: 767px) {
     .hero {
         background-position: bottom right;
-        background-size: 90%;
+        background-size: 100%;
         align-items: flex-start;
-        padding-top: 40px;
+        padding-top: 80px;
     }
     .hero-content {
-        background: linear-gradient(to bottom, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0) 100%);
-        padding-bottom: 300px; /* Espaço para a foto aparecer embaixo */
+        background: linear-gradient(to bottom, rgba(7, 11, 18, 0.95) 30%, rgba(7, 11, 18, 0.7) 70%, rgba(7, 11, 18, 0) 100%);
+        padding: 20px;
+        padding-bottom: 350px; /* Espaço para a foto aparecer embaixo */
+        border-radius: 0 0 20px 20px;
+    }
+    .headline {
+        font-size: 2.2rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .emotional-phrase {
+        font-size: 1.8rem;
+    }
+    .btn-hero {
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 1.05rem;
+    }
+    .trust-badges {
+        justify-content: center;
+        gap: 8px;
+    }
+    .pricing-cards {
+        width: 100%;
+    }
+    .price-card {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .separator {
+        display: none;
+    }
+    .form-row {
+        flex-direction: column;
     }
 }
 
