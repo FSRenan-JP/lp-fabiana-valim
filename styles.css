@@ -485,6 +485,7 @@ a {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    background-color: var(--clr-bg-premium);
 }
 
 /* =========================================
