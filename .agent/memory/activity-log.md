@@ -2,6 +2,24 @@
 
 Este documento registra todas as alterações arquiteturais, correções de bugs, features implementadas e decisões tomadas no projeto, organizadas cronologicamente.
 
+## [2026-06-25] - Orquestração SEO Completo (GMN + Landing Page)
+**Objetivo da Sessão:** Otimizar ativamente o SEO da Landing Page para parear com a ficha oficial do Google Meu Negócio, subindo o ranqueamento local ("Diarista em Londrina") e melhorando a taxa de clique no compartilhamento de redes sociais.
+
+**Ações Executadas:**
+1. **Auditoria e Planejamento SEO:**
+   - Criamos o `seo_audit.md` detectando falta de Schema Markup, tag Open Graph quebrada (falta de preview) e H1 não focado em palavras-chave.
+   - Criamos o `implementation_plan.md` mapeando a integração exata entre o código e o GMN.
+2. **Implementação do SEO Técnico no `index.html`:**
+   - Adicionamos a tag `<meta property="og:image" content="logo-fv.jpg">` para forçar o thumbnail de preview do link via WhatsApp.
+   - Adicionamos o `<link rel="icon" href="logo.png">` para exibir o favicon no navegador e celular.
+   - Injetamos o JSON-LD (`LocalBusiness` / `ProfessionalService`) linkando nome, endereço, latitude/longitude exata de Londrina e telefone para cruzar diretamente com o algoritmo do Google.
+   - Refinamos o H1 do Hero de *"Seu lar limpo..."* para **"Faxina Residencial Premium:<br>Seu lar limpo, organizado e cuidado com carinho."** inserindo a palavra-chave orgânica sem perder o apelo emocional.
+
+**Decisões Tomadas:**
+- Decidimos que a manutenção do Google Meu Negócio (Idioma, Configuração de Categoria) será feita manualmente pela usuária, enquanto toda a base técnica (código) foi assumida pelo Agente. A imagem selecionada como "Rosto" dos links sociais foi a `logo-fv.jpg`.
+
+---
+
 ## [2026-06-25] - Integração do Google Meu Negócio e Refinamento de UX
 **Objetivo da Sessão:** Otimizar a Landing Page para capturar tráfego vindo do Google Meu Negócio (GMN) recém-criado, e resolver débitos visuais críticos (logo e responsividade).
 
