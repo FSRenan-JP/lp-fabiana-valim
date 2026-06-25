@@ -471,28 +471,21 @@ a {
 }
 
 .logo-link {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: var(--transition);
-    
-    /* Novo estilo de Card Flutuante */
-    background: rgba(7, 11, 18, 0.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(216, 120, 30, 0.3);
-    padding: 10px 24px;
-    border-radius: 30px;
     display: inline-block;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: var(--transition);
 }
 
 .logo-link:hover {
-    color: var(--clr-gold-light);
-    border-color: var(--clr-gold-light);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.logo-img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    border: 2px solid var(--clr-gold-light);
 }
 
 /* =========================================
