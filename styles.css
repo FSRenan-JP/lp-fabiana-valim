@@ -485,7 +485,6 @@ a {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 15px rgba(0,0,0,0.8);
-    border: 2px solid var(--clr-gold-light);
 }
 
 /* =========================================
@@ -862,7 +861,7 @@ a {
     .hero-content {
         background: transparent;
         padding: 0 5px;
-        padding-bottom: 120px; /* Reduzido para tirar o espaço preto excessivo */
+        padding-bottom: 350px; /* Aumentado para empurrar a foto da pessoa para baixo e não cobrir a cabeça */
     }
     .badge {
         font-size: 0.75rem;
