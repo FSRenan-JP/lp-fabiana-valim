@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const dataFormatada = partesData.length === 3 ? `${partesData[2]}/${partesData[1]}` : dataStr;
 
             const mensagem = `Olá Fabiane! Gostaria de verificar a disponibilidade para uma faxina de ${horas} no dia ${dataFormatada} às ${horaStr}.`;
-            const phone = "554396053182";
+            const phone = "5543984279172";
             
             // Construção da URL e redirecionamento
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(mensagem)}`;
